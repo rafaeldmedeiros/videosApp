@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Room Mate
+      {{titulo}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,16 +9,16 @@
 <ion-content [fullscreen]="true" color="secondary">
   <ion-searchbar color="light" placeholder="Buscar"></ion-searchbar>
 
-  <ion-item-sliding>
+  <ion-item-sliding *ngFor="let filme of listaVideos">
   <ion-item href="https://www.themoviedb.org/movie/631842?language=pt" lines="full">
     <ion-thumbnail slot="start">
-      <img alt="Silhouette of mountains" src="https://www.themoviedb.org/t/p/w440_and_h660_face/xtLEm7icyupihsdhUYXJdQ7sKFo.jpg" />
+      <img alt="Silhouette of mountains" [src]="filme.cartaz" />
     </ion-thumbnail>
     <ion-label>
       <div>
-        <h1>Batem à Porta (2023)</h1>
-        <p>1h 40m</p>
-        <p>Terror, Mistério, Thriller</p>
+        <h1>{{filme.nome}} {{filme.lancamento}}</h1>
+        <p>{{filme.duracao}}</p>
+        <ion-badge color="light" *ngFor="let genero of filme.generos">{{genero}}</ion-badge>
 
       </div>
     </ion-label>
@@ -31,27 +31,6 @@
   </ion-item-options>
 </ion-item-sliding>
 
-<ion-item-sliding>
-  <ion-item href="https://www.themoviedb.org/movie/505642?language=pt" line="full">
-    <ion-thumbnail slot="start">
-      <img alt="Silhouette of mountains" src="https://www.themoviedb.org/t/p/w440_and_h660_face/nZ69WTv7n01womaNz3SHa4inA9x.jpg" />
-    </ion-thumbnail>
-    <ion-label>
-      <div>
-        <h1>Black Panther: Wakanda Para Sempre (2022)</h1>
-        <p>2h 41m</p>
-        <p>Ação, Aventura, Ficção científica</p>
-      </div>
-    </ion-label>
-    <ion-chip color="success" outline>80%</ion-chip>
-  </ion-item>
-  <ion-item-options side="end">
-    <ion-item-option (click)="exibirAlertaFavorito()">
-      <ion-icon slot="icon-only" name="star"></ion-icon>
-    </ion-item-option>
-
-  </ion-item-options>
-</ion-item-sliding>
 
 
 </ion-content>

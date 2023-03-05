@@ -1,3 +1,4 @@
+import { IFilme } from '../models/IFilme.model';
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
@@ -11,6 +12,25 @@ export class Tab1Page {
 
   handlerMessage = '';
   roleMessage = '';
+  titulo = "Room Mate";
+  listaVideos: IFilme[] = [
+    {
+      nome:'Batem à Porta',
+      lancamento:'2023',
+      duracao:'1h 40m',
+      classificacao: 76,
+      cartaz: 'https://www.themoviedb.org/t/p/w440_and_h660_face/xtLEm7icyupihsdhUYXJdQ7sKFo.jpg',
+      generos: ['Terror', 'Mistério', 'Thriller']
+    },
+    {
+      nome:'Black Panther: Wakanda Para Sempre',
+      lancamento:'2022',
+      duracao:'2h 41m',
+      classificacao: 80,
+      cartaz: 'https://www.themoviedb.org/t/p/w440_and_h660_face/nZ69WTv7n01womaNz3SHa4inA9x.jpg',
+      generos: ['Ação', 'Aventura', 'Ficção científica']
+    }
+  ];
 
   constructor(private alertController: AlertController, private toastController: ToastController) {}
 
