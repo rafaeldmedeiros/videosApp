@@ -10,7 +10,7 @@
   <ion-searchbar color="light" placeholder="Buscar"></ion-searchbar>
 
   <ion-item-sliding *ngFor="let filme of listaVideos">
-  <ion-item href="https://www.themoviedb.org/movie/631842?language=pt" lines="full">
+  <ion-item lines="full" (click)="exibirFilme(filme)">
     <ion-thumbnail slot="start">
       <img alt="Silhouette of mountains" [src]="filme.cartaz" />
     </ion-thumbnail>
